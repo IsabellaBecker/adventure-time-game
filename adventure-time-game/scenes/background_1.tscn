@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhleqrflwuip2"]
+
+[ext_resource type="Texture2D" uid="uid://yimuvnjb3rhq" path="res://assets/cenarios/background_1/layer01_ground.png" id="1_ckjkk"]
+[ext_resource type="Texture2D" uid="uid://dgh6hjhp5a8mk" path="res://assets/cenarios/background_1/layer02_cake.png" id="2_of63l"]
+[ext_resource type="Texture2D" uid="uid://q6nh27bmfcys" path="res://assets/cenarios/background_1/layer03_trees.png" id="3_c1jot"]
+[ext_resource type="Texture2D" uid="uid://cdy8xfy8f7x0j" path="res://assets/cenarios/background_1/layer04_clouds.png" id="4_u1w8s"]
+[ext_resource type="Texture2D" uid="uid://dbeoj2688qqea" path="res://assets/cenarios/background_1/layer05_rocks.png" id="5_1e7xf"]
+[ext_resource type="Texture2D" uid="uid://d2yy1ys0pe74g" path="res://assets/cenarios/background_1/layer06_sky.png" id="6_vqc8h"]
+
+[node name="Background1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Layer_Ground" type="ParallaxLayer" parent="ParallaxBackground"]
+light_mask = 513
+z_index = 5
+position = Vector2(0, -270)
+
+[node name="Texture_Ground" type="Sprite2D" parent="ParallaxBackground/Layer_Ground"]
+z_index = 5
+position = Vector2(0, 271)
+texture = ExtResource("1_ckjkk")
+
+[node name="Layer_Cake" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 3
+position = Vector2(-5, 88)
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="Texture_Cake" type="Sprite2D" parent="ParallaxBackground/Layer_Cake"]
+z_index = 3
+position = Vector2(14, -87)
+texture = ExtResource("2_of63l")
+
+[node name="Layer_Trees" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 3
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="Texture_Trees" type="Sprite2D" parent="ParallaxBackground/Layer_Trees"]
+z_index = 2
+position = Vector2(7, 3)
+texture = ExtResource("3_c1jot")
+
+[node name="Layer_Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 4
+position = Vector2(0, 68)
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="Texture_Clouds" type="Sprite2D" parent="ParallaxBackground/Layer_Clouds"]
+z_index = 1
+position = Vector2(-6, -65)
+texture = ExtResource("4_u1w8s")
+
+[node name="Layer_Rocks" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 4
+position = Vector2(-7, 1)
+motion_scale = Vector2(0.7, 0.7)
+
+[node name="Texture_Rocks" type="Sprite2D" parent="ParallaxBackground/Layer_Rocks"]
+z_index = 4
+z_as_relative = false
+position = Vector2(9, -3)
+texture = ExtResource("5_1e7xf")
+
+[node name="Layer_Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Texture_Sky" type="Sprite2D" parent="ParallaxBackground/Layer_Sky"]
+texture = ExtResource("6_vqc8h")
+
+[node name="Camera2D" type="Camera2D" parent="."]
