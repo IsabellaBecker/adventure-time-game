@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b03w2x0rrsanw"]
+[gd_scene load_steps=28 format=3 uid="uid://b03w2x0rrsanw"]
 
 [ext_resource type="PackedScene" uid="uid://4l0vk4cw26jg" path="res://scenes/player.tscn" id="1_6e84v"]
 [ext_resource type="Script" uid="uid://dcx1yrvsauwnd" path="res://scripts/manager.gd" id="1_08kqv"]
@@ -609,6 +609,21 @@ sources/10 = SubResource("TileSetAtlasSource_08kqv")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3m5ht"]
 
+[sub_resource type="Animation" id="Animation_f6ptj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(272, 5)]
+}
+
 [sub_resource type="Animation" id="Animation_08kqv"]
 resource_name = "move"
 length = 1.5
@@ -626,7 +641,13 @@ tracks/0/keys = {
 "values": [Vector2(272, 5), Vector2(399, 5)]
 }
 
-[sub_resource type="Animation" id="Animation_f6ptj"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsdmi"]
+_data = {
+&"RESET": SubResource("Animation_f6ptj"),
+&"move": SubResource("Animation_08kqv")
+}
+
+[sub_resource type="Animation" id="Animation_xtx0q"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -638,13 +659,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(272, 5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsdmi"]
-_data = {
-&"RESET": SubResource("Animation_f6ptj"),
-&"move": SubResource("Animation_08kqv")
+"values": [Vector2(610, -11)]
 }
 
 [sub_resource type="Animation" id="Animation_ifa78"]
@@ -664,7 +679,13 @@ tracks/0/keys = {
 "values": [Vector2(610, -11), Vector2(732, -11)]
 }
 
-[sub_resource type="Animation" id="Animation_xtx0q"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3kg8w"]
+_data = {
+&"RESET": SubResource("Animation_xtx0q"),
+&"move1": SubResource("Animation_ifa78")
+}
+
+[sub_resource type="Animation" id="Animation_0q20i"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -676,13 +697,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(610, -11)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3kg8w"]
-_data = {
-&"RESET": SubResource("Animation_xtx0q"),
-&"move1": SubResource("Animation_ifa78")
+"values": [Vector2(777, -11)]
 }
 
 [sub_resource type="Animation" id="Animation_x63s8"]
@@ -702,26 +717,13 @@ tracks/0/keys = {
 "values": [Vector2(932, -11), Vector2(777, -11)]
 }
 
-[sub_resource type="Animation" id="Animation_0q20i"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(777, -11)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qv8l0"]
 _data = {
 &"RESET": SubResource("Animation_0q20i"),
 &"move2": SubResource("Animation_x63s8")
 }
+
+[sub_resource type="SystemFont" id="SystemFont_08kqv"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -857,3 +859,21 @@ position = Vector2(1034, -29)
 
 [node name="Slime3" parent="Enemies" instance=ExtResource("10_dubn7")]
 position = Vector2(1207, 0)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CoinLabel" type="Label" parent="HUD/Control"]
+layout_mode = 0
+offset_left = -229.0
+offset_top = -62.0
+offset_right = -150.0
+offset_bottom = -39.0
+theme_override_fonts/font = SubResource("SystemFont_08kqv")
+theme_override_font_sizes/font_size = 10
+text = "Moedas: 0"
