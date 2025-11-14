@@ -4,6 +4,8 @@ extends CharacterBody2D
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+var is_attacking := false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,3 +25,17 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("attack") and not is_attacking:
+		start_attack()
+		
+func start_attack() -> void:
+	is_attacking = true
+	anim.play("attack")
+	
+func anim_finished() -> void:
+	print("FINALIZOU ANIMAÇÃO")
+	if anim.animation == "attack":
+		is_attacking = false
+		anim.play("idle")
