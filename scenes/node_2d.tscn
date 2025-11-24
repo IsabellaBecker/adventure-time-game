@@ -862,18 +862,11 @@ position = Vector2(1207, 0)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 0
-follow_viewport_enabled = true
 
-[node name="Control" type="Control" parent="HUD"]
-layout_mode = 3
-anchors_preset = 0
-
-[node name="CoinLabel" type="Label" parent="HUD/Control"]
-layout_mode = 0
-offset_left = -229.0
-offset_top = -62.0
-offset_right = -150.0
-offset_bottom = -39.0
+[node name="CoinLabel" type="Label" parent="HUD"]
+offset_right = 147.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(1, 0.43207094, 0.41855443, 1)
 theme_override_fonts/font = SubResource("SystemFont_08kqv")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 30
 text = "Moedas: 0"
