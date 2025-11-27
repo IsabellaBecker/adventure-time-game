@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://4l0vk4cw26jg"]
+[gd_scene load_steps=20 format=3 uid="uid://4l0vk4cw26jg"]
 
 [ext_resource type="Texture2D" uid="uid://5dxgcbywndwc" path="res://assets/FinnSprite.png" id="1_3vyb7"]
 
@@ -58,6 +58,10 @@ region = Rect2(224, 0, 32, 32)
 atlas = ExtResource("1_3vyb7")
 region = Rect2(256, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(480, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_d2wvv"]
 animations = [{
 "frames": [{
@@ -111,6 +115,14 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_oprun")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_attack"]
@@ -125,7 +137,7 @@ collision_layer = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -1)
 sprite_frames = SubResource("SpriteFrames_d2wvv")
-animation = &"attack"
+animation = &"jump"
 autoplay = "idle"
 
 [node name="AttackArea" type="Area2D" parent="AnimatedSprite2D"]

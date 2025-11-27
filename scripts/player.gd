@@ -24,6 +24,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		
 		velocity.y = JUMP_VELOCITY
+		print("PULOU")
+		anim.play("jump")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -57,6 +59,9 @@ func anim_finished() -> void:
 		anim.play("idle")
 		attack_area.monitoring = false
 		attack_shape.disabled = true
+
+	if anim.animation == "jump":
+		anim.play("idle")
 
 func _on_attack_area_area_entered(area: Area2D) -> void:
 	if not area.is_in_group("enemy_hurtbox"):
