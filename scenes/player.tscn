@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://4l0vk4cw26jg"]
+[gd_scene load_steps=19 format=3 uid="uid://4l0vk4cw26jg"]
 
 [ext_resource type="Texture2D" uid="uid://5dxgcbywndwc" path="res://assets/FinnSprite.png" id="1_3vyb7"]
 
@@ -78,7 +78,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,

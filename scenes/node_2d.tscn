@@ -866,7 +866,7 @@ layer = 0
 [node name="CoinLabel" type="Label" parent="HUD"]
 offset_right = 147.0
 offset_bottom = 42.0
-theme_override_colors/font_color = Color(1, 0.43207094, 0.41855443, 1)
+theme_override_colors/font_color = Color(1, 0.432071, 0.418554, 1)
 theme_override_fonts/font = SubResource("SystemFont_08kqv")
 theme_override_font_sizes/font_size = 30
 text = "Moedas: 0"
