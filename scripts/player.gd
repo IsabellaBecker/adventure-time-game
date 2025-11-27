@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
@@ -69,6 +68,12 @@ func _on_attack_area_area_entered(area: Area2D) -> void:
 	var enemy := area.get_parent()
 	if enemy and enemy.has_method("take_damage"):
 		enemy.take_damage()
-
+		
+func teste() -> void:
+	print("aaaaa")
+	
 func is_attack_active() -> bool:
 	return is_attacking
+	
+func death() -> void :
+	anim.play("death")
