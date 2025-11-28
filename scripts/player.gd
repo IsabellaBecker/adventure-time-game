@@ -3,9 +3,12 @@ extends CharacterBody2D
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
+@onready var sfx_jump: AudioStreamPlayer2D = $"sfx_ jump"
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_area: Area2D = $AnimatedSprite2D/AttackArea
 @onready var attack_shape: CollisionShape2D = $AnimatedSprite2D/AttackArea/CollisionShape2D
+@onready var sfx_death: AudioStreamPlayer2D = $sfx_death
+
 var is_attacking := false
 
 func _ready() -> void:
@@ -25,6 +28,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		print("PULOU")
 		anim.play("jump")
+		sfx_jump.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -77,3 +81,4 @@ func is_attack_active() -> bool:
 	
 func death() -> void :
 	anim.play("death")
+	sfx_death.play()

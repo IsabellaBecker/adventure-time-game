@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cwdcomlraa5p0" path="res://scenes/coin.tscn" id="7_fws66"]
 [ext_resource type="PackedScene" uid="uid://0mawf1ujhl5k" path="res://scenes/killzone.tscn" id="8_hh0fu"]
 [ext_resource type="PackedScene" uid="uid://b8saxdj3kv7v4" path="res://scenes/slime.tscn" id="10_dubn7"]
+[ext_resource type="FontFile" uid="uid://colsh3tvehrwd" path="res://assets/Minecraft.ttf" id="12_f6ptj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hh0fu"]
 texture = ExtResource("3_04qyp")
@@ -723,8 +724,6 @@ _data = {
 &"move2": SubResource("Animation_x63s8")
 }
 
-[sub_resource type="SystemFont" id="SystemFont_08kqv"]
-
 [node name="Game" type="Node2D"]
 
 [node name="Manager" type="Node" parent="."]
@@ -867,7 +866,7 @@ layer = 0
 offset_right = 147.0
 offset_bottom = 42.0
 theme_override_colors/font_color = Color(1, 0.432071, 0.418554, 1)
-theme_override_fonts/font = SubResource("SystemFont_08kqv")
+theme_override_fonts/font = ExtResource("12_f6ptj")
 theme_override_font_sizes/font_size = 30
 text = "Moedas: 0"
 
