@@ -4,10 +4,12 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
 @onready var sfx_jump: AudioStreamPlayer2D = $"sfx_ jump"
+@onready var sfx_attack: AudioStreamPlayer2D = $sfx_attack
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_area: Area2D = $AnimatedSprite2D/AttackArea
 @onready var attack_shape: CollisionShape2D = $AnimatedSprite2D/AttackArea/CollisionShape2D
-@onready var sfx_death: AudioStreamPlayer2D = $sfx_death
+@onready var sfx_morte: AudioStreamPlayer2D = $sfx_morte
+@onready var game_over_layer: CanvasLayer = $"../GameOverLayer"
 
 var is_attacking := false
 
@@ -52,6 +54,7 @@ func _process(_delta: float) -> void:
 func start_attack() -> void:
 	is_attacking = true
 	anim.play("attack")
+	sfx_attack.play()
 	attack_shape.disabled = false
 	attack_area.monitoring = true
 
@@ -79,6 +82,15 @@ func teste() -> void:
 func is_attack_active() -> bool:
 	return is_attacking
 	
-func death() -> void :
+func death() -> void:
+	if anim.animation == "death":
+		return
+
+	set_physics_process(false)
+	set_process(false)
+	is_attacking = false
+	attack_area.monitoring = false
+	attack_shape.disabled = true
+
 	anim.play("death")
-	sfx_death.play()
+	sfx_morte.play()
