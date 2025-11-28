@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b8saxdj3kv7v4" path="res://scenes/slime.tscn" id="10_dubn7"]
 [ext_resource type="FontFile" uid="uid://colsh3tvehrwd" path="res://assets/Minecraft.ttf" id="12_f6ptj"]
 [ext_resource type="Texture2D" uid="uid://bq1es1es32asq" path="res://assets/game_over.png" id="13_hsdmi"]
-[ext_resource type="Script" uid="uid://5qkelvql6jkt" path="res://scenes/game_over_layer.gd" id="13_ifa78"]
+[ext_resource type="Script" path="res://scenes/game_over_layer.gd" id="13_ifa78"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hh0fu"]
 texture = ExtResource("3_04qyp")

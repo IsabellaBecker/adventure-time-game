@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -300.0
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_area: Area2D = $AnimatedSprite2D/AttackArea
 @onready var attack_shape: CollisionShape2D = $AnimatedSprite2D/AttackArea/CollisionShape2D
-@onready var sfx_morte: AudioStreamPlayer2D = $sfx_morte
+@onready var sfx_morte: AudioStreamPlayer2D = $sfx_death
 @onready var game_over_layer: CanvasLayer = $"../GameOverLayer"
 
 var is_attacking := false
@@ -76,9 +76,6 @@ func _on_attack_area_area_entered(area: Area2D) -> void:
 	if enemy and enemy.has_method("take_damage"):
 		enemy.take_damage()
 		
-func teste() -> void:
-	print("aaaaa")
-	
 func is_attack_active() -> bool:
 	return is_attacking
 	
@@ -86,11 +83,12 @@ func death() -> void:
 	if anim.animation == "death":
 		return
 
-	set_physics_process(false)
-	set_process(false)
-	is_attacking = false
-	attack_area.monitoring = false
-	attack_shape.disabled = true
-
 	anim.play("death")
 	sfx_morte.play()
+
+	set_physics_process(false)
+	set_process(false)
+
+	is_attacking = false
+	attack_area.set_deferred("monitoring", false)
+	attack_shape.set_deferred("disabled", true)
