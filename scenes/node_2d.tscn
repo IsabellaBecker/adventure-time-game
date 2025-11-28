@@ -725,7 +725,7 @@ _data = {
 
 [sub_resource type="SystemFont" id="SystemFont_08kqv"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Game" type="Node2D"]
 
 [node name="Manager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -754,9 +754,6 @@ limit_smoothed = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 98)
 shape = SubResource("WorldBoundaryShape2D_3m5ht")
-
-[node name="Coin" parent="." instance=ExtResource("7_fws66")]
-position = Vector2(138, -24)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -820,6 +817,9 @@ position = Vector2(1160, -9)
 [node name="Coin20" parent="Coins" instance=ExtResource("7_fws66")]
 position = Vector2(1139, -9)
 
+[node name="Coin21" parent="Coins" instance=ExtResource("7_fws66")]
+position = Vector2(138, -24)
+
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("6_j7wrs")]
@@ -870,3 +870,5 @@ theme_override_colors/font_color = Color(1, 0.432071, 0.418554, 1)
 theme_override_fonts/font = SubResource("SystemFont_08kqv")
 theme_override_font_sizes/font_size = 30
 text = "Moedas: 0"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
